@@ -222,6 +222,14 @@ board = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
 
 #Initialize game
+print("Game ends when specified score is achieved.\nCorrect moves net an average of 16 points due to cascades.\n")
+while True:
+    try:
+        score = int(input("Input your desired score to end game at."))
+        break
+    except:
+        print("Invalid number provided")
+
 Initialize(board)
 
 #While game not over
