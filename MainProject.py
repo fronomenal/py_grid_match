@@ -76,9 +76,14 @@ def GetMove():
     Rows are counted from the bottom starting from 1.
     
     Example, "e3u" will swap position e3 with the one above, 
-    and "f7r" will swap f7 to the right.""")
+    and "f7r" will swap f7 to the right.
+    
+    Enter exit to quit""")
     
     move = input("Enter move: ")
+    
+    if move == "exit":
+        exit()
 
     while not IsValid(move):
         move = input("Invalid direction specified! Enter another move:")
@@ -225,7 +230,7 @@ board = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0],
 print("Game ends when specified score is achieved.\nCorrect moves net an average of 16 points due to cascades.\n")
 while True:
     try:
-        score = int(input("Input your desired score to end game at."))
+        score = int(input("Input your desired score to end game at.\n->"))
         break
     except:
         print("Invalid number provided")
