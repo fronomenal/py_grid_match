@@ -230,7 +230,7 @@ board = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0],
 print("Game ends when specified score is achieved.\nCorrect moves net an average of 16 points due to cascades.\n")
 while True:
     try:
-        score = int(input("Input your desired score to end game at.\n->"))
+        goalscore = int(input("Input your desired score to end game at.\n->"))
         break
     except:
         print("Invalid number provided")
