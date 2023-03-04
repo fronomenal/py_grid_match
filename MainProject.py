@@ -1,3 +1,4 @@
+import sys
 from random import choice
 
 def InitializeGrid(board): # Initialize grid using an array
@@ -78,12 +79,12 @@ def GetMove():
     Example, "e3u" will swap position e3 with the one above, 
     and "f7r" will swap f7 to the right.
     
-    Enter exit to quit""")
+    Enter 'exit' without quotes to quit""")
     
     move = input("Enter move: ")
     
     if move == "exit":
-        exit()
+        sys.exit()
 
     while not IsValid(move):
         move = input("Invalid direction specified! Enter another move:")
@@ -227,18 +228,21 @@ board = [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]
 
 #Initialize game
-print("Game ends when specified score is achieved.\nCorrect moves net an average of 16 points due to cascades.\n")
-while True:
-    try:
-        goalscore = int(input("Input your desired score to end game at.\n->"))
-        break
-    except:
-        print("Invalid number provided")
+try:
+    print("Game ends when specified score is achieved.\nCorrect moves net an average of 16 points due to cascades.\n")
+    while True:
+        try:
+            goalscore = int(input("Input your desired score to end game at.\n> "))
+            break
+        except ValueError:
+            print("Invalid number provided")
 
-Initialize(board)
+    Initialize(board)
 
-#While game not over
-while ContinueGame(score, goalscore):
-    #Do a round of the game)
-    DoRound(board)
-print(f"\n->A winner is you with {score}points!")
+    #While game not over
+    while ContinueGame(score, goalscore):
+        #Do a round of the game)
+        DoRound(board)
+    print(f"\n->A winner is you with {score} points!")
+except KeyboardInterrupt:
+    sys.exit()
